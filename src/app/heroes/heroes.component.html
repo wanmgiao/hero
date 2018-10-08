@@ -1,0 +1,30 @@
+<h2>My Heroes</h2>
+
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"(click)="delete(hero)">x</button>
+    
+  </li>
+</ul>
+
+每页显示行数  <select  style="height:25px;width:100px;" (change)="option($event.target.selectedIndex)"> 
+  <option *ngFor="let num of numList">{{num}}</option>
+</select>
+
+<button style="margin-left: 30px; height:25px; width:160px class=left"
+(click)="right()">right</button>
+
+<button style="margin-left: 70px; height:25px; width:160px class=right;" 
+(click)="left ()">left</button>
